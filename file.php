@@ -1,5 +1,5 @@
 <?php 
 
-echo 'whatttup sucka <br />'; 
+$x = 5;
 
 ?>
