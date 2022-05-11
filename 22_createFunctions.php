@@ -15,7 +15,6 @@ function foo() {
     echo 'Hello World';
 }   /*as it stands this will not work as the function HAS NOT been envoked, i.e. it needs to be called. */
 
-
    foo();    /* this is now being invoked so the function will run and will print out hello world" */
 
 //instead of priting something directly from the function you could return something from the function and then do something from that value.
@@ -24,7 +23,7 @@ function foo() {
 //you could assign it to a variable
 
 echo '<br />';
-
+//----------------------------------------------------------
 function roo() {
     return "heyo";
 }
@@ -36,4 +35,40 @@ echo '<br />';
 
 var_dump(roo());
 
+//in php you can run functions inside of other functions
+//because functions in PHP have GLOBAL SCOPE they can be called from outside of the function as long as the first function is called first.
+
+echo '<br />';
+echo '<br />';
+echo '<br />';
+
+//---------------------------------------------------------------------------------
+boo();
+yeh();
+function boo() {
+    echo 'BOO';
+    function yeh() {
+        echo 'Yehhhh';
+    }
+}
+//this will currently echo out boo, becuase it has been invoked. However, it will not print out Yehhh as it is within the first function .
+//if we try to call yeh (before calling boo) we will get an error,
+//this is because 'yeh' is inside of boo. so if boo is not being called it cannot run the function, which has yeh inside it.
+
+//note you cannot have functions with the same name.
+
+
+//--------------Return Types and Strict Types
+
+echo '<br />';
+echo '<br />';
+echo '<br />';
+
+function grr() {
+    return 1;
+}
+
+var_dump(grr()); 
 ?>
+
+
