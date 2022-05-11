@@ -10,7 +10,7 @@
 //you create a function, you use the function key word follow by the  name of the function which should start
 //with an underscore or a letter followed by the list of parameters it accepts seperated by commas/
 //lastly you put your block of code inside the curly {}
-
+declare(strict_types=1);
 function foo() {
     echo 'Hello World';
 }   /*as it stands this will not work as the function HAS NOT been envoked, i.e. it needs to be called. */
@@ -64,11 +64,21 @@ echo '<br />';
 echo '<br />';
 echo '<br />';
 
-function grr() {
+#declare(strict_types=1); //this must be in the very start of the statment, it will also currently throw an error
+//becuse the return is a string but the type hint is that the value will be a string
+function grr(): int  { /* by adding : and the expected data type you can 'type hint' i.e : int, this is telling php the expected datatype of an int */
     return 1;
+    #return '1'; //you can also make it return a string as we are not using strict types.
+    #return []; //this will throw an error as a an array cannot be converted to an int
 }
 
-var_dump(grr()); 
+//if you wanted to declare strict types you could. you add it to the top of the page
+
+var_dump(grr());
+
+
+
+
 ?>
 
 
