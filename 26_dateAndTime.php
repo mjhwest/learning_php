@@ -4,7 +4,7 @@
 //----------------TIME FUNCTION
 
 #echo time(); //this will print the unix time stamp (in seconds) i.e numbers of seconds since 1970 Jan 1st
-date_default_timezone_set('Australia/Adelaide'); //setting the timestamp to Adelaide 
+date_default_timezone_set('Australia/Adelaide'); //setting the timestamp to Adelaide
 $adelaide = time();
 
 $currentTime = time();
