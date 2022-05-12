@@ -77,8 +77,6 @@ function grr(): int  { /* by adding : and the expected data type you can 'type h
 var_dump(grr());
 
 
-
-
 ?>
 
 

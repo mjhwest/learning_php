@@ -37,4 +37,33 @@ echo boo($a, $b) . '<br />';
 var_dump($a, $b);
 
 
+echo '<br />';
+echo '<br />';
+echo '<br />';
+
+
+//--------------------SPLAT OPERATORS
+//Variadic functions are functions that accept variable number of arguments
+
+function sum (...$numbers): int|float {
+    //line 48; instead of defining multple paramters you can use SPLAT which is ... then variable name
+    //and it will capture the arguments being passed to the function into an array and numbers will now be an array containing all those arguments.
+
+
+    //number is now an array containing all the arguments
+
+    $sum = 0;
+    foreach($numbers as $number) {
+        $sum += $number;
+    }
+    return $sum;
+
+  return $h + $p;
+    }
+
+$qw = 6.0;
+$as = 7;
+echo sum($qw, $as, 10, 10, 10, 10, 10) . '<br />'; //we can now pass in whatever vales we want into the argument and we will get the correct value.
+
+
 ?>
