@@ -33,12 +33,42 @@ function getTransactions(string $fileName): array //this is going to accept the 
 //next we need to open this file
     $file = fopen($fileName, 'r'); //the r  here means for reading
 
+    fgetcsv($file); //by adding this line we got rid title stuff and only keep the actual csv file .
+
 //next we need to create a transactions array that will read the transactions line by line and put it into the transactions
     $transactions = [];
 
     while (($transaction = fgetcsv($file)) !== false) {
-        $transactions[] = $transaction;
+        #$transactions[] = $transaction;
+        //insert extractTransaction function
+        $transactions[] = extractTransaction($transaction);
     }
 
     return $transactions;
+}
+
+/** PART 3   function to extract details from transcation list  */
+
+function extractTransaction(array $transactionRow): array //it will return an array
+        //the extractTransaction function can now be used directly
+{
+    [$date, $checkNumber, $description, $amount] = $transactionRow;
+
+    //need to make all the amount details the same
+    $amount = (float) str_replace(['$', ','], '', $amount); //this is replacing $ and , with empty string and amount
+    // this above line also needs to be a float, done by adding (float) to start
+
+    return [
+        'date' => $date,
+        'checkNumber' => $checkNumber,
+        'description' => $description,
+        'amount' => $amount //we can extract this data from the transactionRow array, this can be done by using array deconstructioning.
+    ];
+}
+
+/** Create another function to calculate the totals  */
+
+function calculateTotals(array $transactions): array //this function accepts 'transactions' and will return an array
+{
+    
 }

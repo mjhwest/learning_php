@@ -34,7 +34,17 @@
     </tr>
     </thead>
     <tbody>
-    <!-- YOUR CODE -->
+    <?php if(! empty($transactions)): ?>
+    <?php foreach($transactions as $transaction): ?>
+        <tr>
+            //need to update $transaction from array indexes to correct keys
+            <td> <?= $transaction['date'] ?></td> //everything is presented in an array so 0 = Date
+            <td> <?= $transaction['checkNumber'] ?></td> // 1 = check
+            <td> <?= $transaction['description'] ?></td> // 2 = description
+            <td> <?= $transaction['amount'] ?></td> // 3 = amount
+        </tr>
+    <?php endforeach ?>
+    <?php endif ?>
     </tbody>
     <tfoot>
     <tr>
