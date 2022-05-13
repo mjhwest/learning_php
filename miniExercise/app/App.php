@@ -70,5 +70,15 @@ function extractTransaction(array $transactionRow): array //it will return an ar
 
 function calculateTotals(array $transactions): array //this function accepts 'transactions' and will return an array
 {
-    
+    $totals = ['netTotal' => 0, 'totalIncome' => 0, 'totalExpense' => 0];
+
+    foreach ($transactions as $transaction) {
+        $totals ['netTotal'] += $transaction['amount'];
+        if ($transaction['amount'] >= 0) {
+            $totals['totalIncome'] += $transaction['amount'];
+        } else {
+            $totals['totalExpense'] += $transaction['amount'];
+        }
+    }
+    return $totals;
 }

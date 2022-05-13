@@ -15,7 +15,7 @@ define('VIEWS_PATH', $root . 'views' . DIRECTORY_SEPARATOR);
 
 /* YOUR CODE (Instructions in README.md) */
 require APP_PATH . "App.php"; //requiring the code from App.php
-
+require APP_PATH . 'helpers.php';
 $files = getTransactionFiles(FILES_PATH); //getTransactionFiles is getting called here but is in App.php
                                 //we can pass the file path as the arguments in the getTransactionFiles()
                                 //at the moment getTransactionFiles depends on files path constant
@@ -28,6 +28,8 @@ $transactions = [];
 foreach($files as $file) {
     $transactions = array_merge($transactions, getTransactions($file));
 }
+
+$totals = calculateTotals($transactions);
 
 #print_r($transactions);
 #var_dump($files);

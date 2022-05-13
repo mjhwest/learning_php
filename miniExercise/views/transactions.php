@@ -38,10 +38,23 @@
     <?php foreach($transactions as $transaction): ?>
         <tr>
             //need to update $transaction from array indexes to correct keys
-            <td> <?= $transaction['date'] ?></td> //everything is presented in an array so 0 = Date
+            <td> <?= formatDate($transaction['date'])  ?></td> //everything is presented in an array so 0 = Date
             <td> <?= $transaction['checkNumber'] ?></td> // 1 = check
             <td> <?= $transaction['description'] ?></td> // 2 = description
-            <td> <?= $transaction['amount'] ?></td> // 3 = amount
+            //add color for postive or negative influx of $
+            <?php if ($transaction['amount'] <0): ?>
+            <span style="color:red;">
+                <?= formatDollarAmount($transaction['amount']) ?>
+            </span>
+            <?php elseif ($transaction['amount'] > 0): ?>
+            <span style="color: green;">
+            <?= formatDollarAmount($transaction['amount'])?>
+            </span>
+            <?php else: ?>
+            <?= formatDollarAmount($transaction['amount']) ?>
+            <?php endif ?>
+
+            <td> <?= formatDollarAmount($transaction['amount']) ?></td> // 3 = amount
         </tr>
     <?php endforeach ?>
     <?php endif ?>
@@ -49,15 +62,15 @@
     <tfoot>
     <tr>
         <th colspan="3">Total Income:</th>
-        <td><!-- YOUR CODE --></td>
+        <td><?= formatDollarAmount($totals['totalIncome']) ?? 0 ?> </td>
     </tr>
     <tr>
         <th colspan="3">Total Expense:</th>
-        <td><!-- YOUR CODE --></td>
+        <td><?= formatDollarAmount($totals['totalExpense'])  ?? 0 ?> </td>
     </tr>
     <tr>
         <th colspan="3">Net Total:</th>
-        <td><!-- YOUR CODE --></td>
+        <td><?= formatDollarAmount($totals['netTotal']) ?? 0 ?> </td>
     </tr>
     </tfoot>
 </table>
