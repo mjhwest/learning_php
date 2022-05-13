@@ -1,5 +1,5 @@
 <?php
-
+/** FIRST STEP  */
 declare(strict_types = 1);
 
 $root = dirname(__DIR__) . DIRECTORY_SEPARATOR;
@@ -16,6 +16,20 @@ define('VIEWS_PATH', $root . 'views' . DIRECTORY_SEPARATOR);
 /* YOUR CODE (Instructions in README.md) */
 require APP_PATH . "App.php"; //requiring the code from App.php
 
-$files = getTransactionFiles(); //getTransactionFiles is getting called here but is in App.php
+$files = getTransactionFiles(FILES_PATH); //getTransactionFiles is getting called here but is in App.php
+                                //we can pass the file path as the arguments in the getTransactionFiles()
+                                //at the moment getTransactionFiles depends on files path constant
 
-var_dump($files);
+
+/** FIRST STEP */
+
+/** SECOND STEP */
+$transactions = [];
+foreach($files as $file) {
+    $transactions = array_merge($transactions, getTransactions($file));
+}
+
+print_r($transactions);
+
+
+#var_dump($files);
