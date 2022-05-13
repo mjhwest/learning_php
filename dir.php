@@ -2,6 +2,10 @@
 
 #mkdir('foo/bar', recursive: true);
 
-rmdir('foo/bar');
+mkdir('filename'); //to make a new file
+rmdir('foo/bar'); //remove a directory (it must be empty)
+
+
+
 
 ?>
