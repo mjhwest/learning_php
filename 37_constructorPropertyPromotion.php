@@ -10,6 +10,10 @@ class Transaction
         float $amount,
         private ?string  $description = null
     ){
+
+
+
+
          $this->amount =$amount;
     }
 }
