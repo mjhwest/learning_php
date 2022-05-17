@@ -3,7 +3,7 @@
 //the syntax is the keyword of that statement (eg include) then inside quotes you include the file path.
 //include will result in a warning while while require will result in an error and stop the script execution.
 
-require_once'file.php'; //this is looking in the same directory for the file, once the file is made it will find it and echo it out
+require_once 'file.php'; //this is looking in the same directory for the file, once the file is made it will find it and echo it out
 
 $x++;
 
