@@ -9,6 +9,7 @@ require_once './PaymentGateway/Paddle/CustomerProfile.php';
 require_once './Notification/Email.php';
 
 
+use PaymentGateway\Paddle\CustomerProfile;
 use PaymentGateway\Paddle\Transaction;
 use PaymentGateway\Stripe\Transaction as StripeTransaction;
 
